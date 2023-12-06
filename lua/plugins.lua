@@ -58,6 +58,9 @@ return require('packer').startup(function(use)
     use {'nvim-telescope/telescope.nvim', tag = '0.1.4',
         requires = { {'nvim-lua/plenary.nvim'} } }
 
+    -- LAZYGIT
+    use {'kdheepak/lazygit.nvim', requires = "nvim-lua/plenary.nvim"}
+
     -- LSP presets (ORDER MATTERS HERE)
     use { 'williamboman/mason.nvim' }
     use { 'williamboman/mason-lspconfig.nvim'}
