@@ -39,8 +39,9 @@ return require('packer').startup(function(use)
     -- NOTE: PUT YOUR THIRD PLUGIN HERE --
     ---------------------------------------
     -- COLORSCHEME
-    use 'ellisonleao/gruvbox.nvim'
-    
+    -- use 'ellisonleao/gruvbox.nvim'
+    use 'folke/tokyonight.nvim'
+
     -- NAVIGATION AND STUFF
     use {'nvim-tree/nvim-tree.lua', config = [[require('config.nvim-tree')]] }  
     use {'nvim-tree/nvim-web-devicons'}
@@ -88,6 +89,10 @@ return require('packer').startup(function(use)
     -- BUFFER TABS
     use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 
+    -- TOGGLE TERMINAL
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup()
+    end}
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
