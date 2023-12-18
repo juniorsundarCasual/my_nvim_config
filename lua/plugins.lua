@@ -40,7 +40,8 @@ return require('packer').startup(function(use)
     ---------------------------------------
     -- COLORSCHEME
     -- use 'ellisonleao/gruvbox.nvim'
-    use 'folke/tokyonight.nvim'
+    -- use 'folke/tokyonight.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" }
 
     -- NAVIGATION AND STUFF
     use {'nvim-tree/nvim-tree.lua', config = [[require('config.nvim-tree')]] }  
