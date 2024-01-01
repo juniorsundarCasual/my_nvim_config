@@ -9,7 +9,7 @@ return {
         'williamboman/mason-lspconfig.nvim',
         config = function()
             require('mason-lspconfig').setup({
-                ensure_installed = {'lua_ls'}
+                ensure_installed = { 'lua_ls', 'pylsp', 'clangd' }
             })
         end
     },
@@ -18,6 +18,8 @@ return {
         config = function()
             local lspconfig = require('lspconfig')
             lspconfig.lua_ls.setup({})
+            lspconfig.pylsp.setup({})
+            lspconfig.clangd.setup({})
 
             -- Global mappings.
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions
