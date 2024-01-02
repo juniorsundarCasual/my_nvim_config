@@ -1,6 +1,6 @@
 return {
-    'kdheepak/lazygit.nvim',
-    config = function()
-        requires = "nvim-lua/plenary.nvim"
-    end
+	"kdheepak/lazygit.nvim",
+	config = function()
+		dependencies = { "nvim-lua/plenary.nvim" }
+	end,
 }
