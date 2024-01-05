@@ -27,7 +27,10 @@ return {
 				settings = {
 					pylsp = {
 						plugins = {
+                            mccabe = { enabled = false },
+                            pyflakes = { enabled = false },
 							pycodestyle = {
+                                enabled = false,
 								ignore = { "E128", "E122", "E251", "E501" },
 							},
 						},
