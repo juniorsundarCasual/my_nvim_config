@@ -5,6 +5,12 @@ return {
 		if not status then
 			return
 		end
+
+        local status, prose = pcall(require, "nvim-prose")
+        if not status then
+            return
+        end
+
 		-- configure Lualine with modified theme
 		lualine.setup({
 			options = {
@@ -42,7 +48,9 @@ return {
 				lualine_z = {},
 			},
 			tabline = {},
-			winbar = {},
+			winbar = {
+                lualine_z = {{ prose.word_count, cond = prose.is_available }}
+            },
 			inactive_winbar = {},
 			extensions = {},
 		})

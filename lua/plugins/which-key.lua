@@ -81,20 +81,23 @@ return {
         end
 
         local mappings = {
-            ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-            ["b"] = {
+            a = { "<cmd>Alpha<cr>", "Alpha" },
+            b = {
                 "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
                 "Buffers",
             },
-            -- ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-            -- ["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
-            ["w"] = { "<cmd>w!<CR>", "Save" },
-            ["q"] = { "<cmd>q!<CR>", "Quit" },
-            ["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" },
-            ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-            ["p"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-            ["l"] = { "<cmd>Lazy<CR>", "Lazy" },
-            ["m"] = { "<cmd>Mason<CR>", "Mason" },
+            w = { "<cmd>w!<cr>", "Save" },
+            q = { "<cmd>q!<cr>", "Quit" },
+            c = { "<cmd>bdelete!<cr>", "Close Buffer" },
+            h = { "<cmd>nohlsearch<cr>", "No Highlight" },
+            p = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+            l = { "<cmd>Lazy<cr>", "Lazy" },
+            m = { "<cmd>Mason<cr>", "Mason" },
+            A = {
+                name = "Autocompletion",
+                e = {"<cmd>lua require 'cmp'.setup{ enabled = true }<cr>", "Enabled"},
+                d = {"<cmd>lua require 'cmp'.setup{ enabled = false }<cr>", "Disabled"},
+            },
             E = {
                 name = "Explorer",
                 e = { "<cmd>Neotree toggle<cr>", "Reveal Explorer" },
