@@ -24,13 +24,18 @@ return {
 			})
 			lspconfig.pylsp.setup({
 				capabilities = capabilities,
+				configurationSources = { "flake8" },
 				settings = {
 					pylsp = {
 						plugins = {
-                            mccabe = { enabled = false },
-                            pyflakes = { enabled = false },
+							flake8 = {
+								enabled = true,
+								ignore = { "E128", "E122", "E251", "E501" },
+							},
+							mccabe = { enabled = false },
+							pyflakes = { enabled = false },
 							pycodestyle = {
-                                enabled = false,
+								enabled = false,
 								ignore = { "E128", "E122", "E251", "E501" },
 							},
 						},
