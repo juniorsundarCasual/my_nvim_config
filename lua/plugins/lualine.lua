@@ -15,13 +15,14 @@ return {
 		lualine.setup({
 			options = {
 				icons_enabled = true,
-				theme = "auto",
-				-- theme = "oxocarbon",
-				component_separators = { left = "", right = "" },
-				section_separators = { left = "", right = "" },
+				-- theme = "palenight",
+				theme = "catppuccin",
+				component_separators = { left = "|", right = "|" },
+				section_separators = { left = "", right = "" },
+				-- component_separators = { left = "", right = "" },
+				-- section_separators = { left = "", right = "" },
 				disabled_filetypes = {
-					statusline = {},
-					winbar = {},
+					"neo-tree",
 				},
 				ignore_focus = {},
 				always_divide_middle = true,
