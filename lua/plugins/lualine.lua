@@ -6,16 +6,17 @@ return {
 			return
 		end
 
-        local status, prose = pcall(require, "nvim-prose")
-        if not status then
-            return
-        end
+		local status, prose = pcall(require, "nvim-prose")
+		if not status then
+			return
+		end
 
 		-- configure Lualine with modified theme
 		lualine.setup({
 			options = {
 				icons_enabled = true,
-				theme = "catppuccin",
+				theme = "auto",
+				-- theme = "oxocarbon",
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = {
@@ -49,8 +50,8 @@ return {
 			},
 			tabline = {},
 			winbar = {
-                lualine_z = {{ prose.word_count, cond = prose.is_available }}
-            },
+				lualine_z = { { prose.word_count, cond = prose.is_available } },
+			},
 			inactive_winbar = {},
 			extensions = {},
 		})
