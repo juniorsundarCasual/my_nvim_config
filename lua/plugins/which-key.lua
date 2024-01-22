@@ -143,33 +143,32 @@ return {
             L = {
                 name = "LSP",
                 a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-                d = {
-                    "<cmd>Telescope diagnostics bufnr=0<cr>",
-                    "Document Diagnostics",
-                },
-                w = {
-                    "<cmd>Telescope diagnostics<cr>",
-                    "Workspace Diagnostics",
-                },
                 f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
-                i = { "<cmd>LspInfo<cr>", "Info" },
-                j = {
-                    "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-                    "Next Diagnostic",
-                },
-                k = {
-                    "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-                    "Prev Diagnostic",
-                },
                 l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
                 q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-                r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-                s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-                S = {
-                    "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-                    "Workspace Symbols",
+                n = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+                r = { "<cmd>lua vim.lsp.buf.references()<cr>", "References"  },
+                d = { "<cmd> lua vim.lsp.buf.definition()<cr>", "Definition" },
+                c = { "<cmd> lua vim.lsp.buf.declaration()<cr>", "Declaration" },
+                i = { "<cmd> lua vim.lsp.buf.implementation()<cr>", "Implementation" },
+                k = { "<cmd> lua vim.lsp.buf.hover()<cr>", "Hover" },
+                t = { "<cmd> lua vim.lsp.buf.type_definition()<cr>", "Type Definition" },
+                I = { "<cmd>LspInfo<cr>", "LSP Info" },
+                D = {
+                    name = "Document",
+                    d = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics" },
+                    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+                    j = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
+                    k = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
                 },
-                D = { "<cmd> lua vim.lsp.buf.type_definition()<cr>", "Type Definition" },
+                W = {
+                    name = "Workspace",
+                    a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", "Add Workspace Folder" },
+                    d = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
+                    s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
+                    r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", "Remove Workspace Folder" },
+                    l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", "List Workspace Folders" },
+                },
             },
             --Telescope
             S = {
@@ -183,7 +182,7 @@ return {
                 k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
                 C = { "<cmd>Telescope commands<cr>", "Commands" },
             },
-            -- Terminal
+
             T = {
                 name = "Terminal",
                 f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
