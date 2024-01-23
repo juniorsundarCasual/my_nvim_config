@@ -1,7 +1,7 @@
 return {
 	"akinsho/bufferline.nvim",
 	version = "*",
-	dependencies = { "nvim-tree/nvim-web-devicons", "catppuccin/nvim" },
+	dependencies = { "nvim-tree/nvim-web-devicons"},
 	config = function()
 		local status, bufferline = pcall(require, "bufferline")
 		if not status then
