@@ -15,9 +15,8 @@ return {
 		lualine.setup({
 			options = {
 				icons_enabled = true,
-				-- theme = "palenight",
 				theme = "catppuccin",
-				-- theme = "kanagawa",
+				-- theme = "rose-pine",
 				component_separators = { left = "|", right = "|" },
 				section_separators = { left = "", right = "" },
 				-- component_separators = { left = "", right = "" },

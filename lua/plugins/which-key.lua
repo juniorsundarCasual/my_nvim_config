@@ -83,13 +83,12 @@ return {
         local mappings = {
             a = { "<cmd>Alpha<cr>", "Alpha" },
             b = {
-                "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+                "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = true})<cr>",
                 "Buffers",
             },
             w = { "<cmd>w!<cr>", "Save" },
             q = { "<cmd>q!<cr>", "Quit" },
             c = { "<cmd>bdelete!<cr>", "Close Buffer" },
-            h = { "<cmd>nohlsearch<cr>", "No Highlight" },
             p = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
             l = { "<cmd>Lazy<cr>", "Lazy" },
             m = { "<cmd>Mason<cr>", "Mason" },
@@ -110,11 +109,8 @@ return {
             -- Find
             F = {
                 name = "Find",
-                f = {
-                    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-                    "Files",
-                },
-                t = { "<cmd>Telescope live_grep theme=ivy<CR>", "Find Text" },
+                f = { "<cmd>Telescope fd<cr>", "Files" },
+                t = { "<cmd>Telescope live_grep theme=ivy<CR>", "Text" },
             },
             -- Git
             G = {
@@ -147,7 +143,7 @@ return {
                 l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
                 q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
                 n = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-                r = { "<cmd>lua vim.lsp.buf.references()<cr>", "References"  },
+                r = { "<cmd>lua vim.lsp.buf.references()<cr>", "References" },
                 d = { "<cmd> lua vim.lsp.buf.definition()<cr>", "Definition" },
                 c = { "<cmd> lua vim.lsp.buf.declaration()<cr>", "Declaration" },
                 i = { "<cmd> lua vim.lsp.buf.implementation()<cr>", "Implementation" },
@@ -167,7 +163,10 @@ return {
                     d = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
                     s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
                     r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", "Remove Workspace Folder" },
-                    l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", "List Workspace Folders" },
+                    l = {
+                        "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>",
+                        "List Workspace Folders",
+                    },
                 },
             },
             --Telescope
