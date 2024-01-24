@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "pylsp", "clangd", "rust_analyzer" },
+                ensure_installed = { "lua_ls", "pylsp", "clangd", "rust_analyzer", "gopls" },
             })
         end,
     },
@@ -48,7 +48,9 @@ return {
             lspconfig.rust_analyzer.setup({
                 capabilities = capabilities,
             })
-
+            lspconfig.gopls.setup({
+                capabilities = capabilities,
+            })
             -- Global mappings.
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions
             -- vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
