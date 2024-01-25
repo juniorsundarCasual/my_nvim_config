@@ -35,27 +35,58 @@ return {
     --                 }
     --             end,
     --         })
-    --         vim.cmd.colorscheme("kanagawa")
+    --         vim.cmd.colorscheme("kanagawa-wave")
+    --     end,
+    -- },
+    -- {
+    --     "catppuccin/nvim",
+    --     name = "catppuccin",
+    --     priority = 1000,
+    --     config = function()
+    --         vim.cmd.colorscheme("catppuccin")
     --     end,
     -- },
     {
-    	"catppuccin/nvim",
-    	name = "catppuccin",
-    	priority = 1000,
-    	config = function()
-    		vim.cmd.colorscheme("catppuccin")
-    	end,
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+        config = function()
+            require("tokyonight").setup({
+                sidebars = { "qf", "vista_kind", "terminal", "packer" },
+
+                on_highlights = function(hl, c)
+                    local prompt = "#2d3149"
+                    hl.TelescopeNormal = {
+                        bg = c.bg_dark,
+                        fg = c.fg_dark,
+                    }
+                    hl.TelescopeBorder = {
+                        bg = c.bg_dark,
+                        fg = c.bg_dark,
+                    }
+                    hl.TelescopePromptNormal = {
+                        bg = prompt,
+                    }
+                    hl.TelescopePromptBorder = {
+                        bg = prompt,
+                        fg = prompt,
+                    }
+                    hl.TelescopePromptTitle = {
+                        bg = prompt,
+                        fg = prompt,
+                    }
+                    hl.TelescopePreviewTitle = {
+                        bg = c.bg_dark,
+                        fg = c.bg_dark,
+                    }
+                    hl.TelescopeResultsTitle = {
+                        bg = c.bg_dark,
+                        fg = c.bg_dark,
+                    }
+                end,
+            })
+            vim.cmd.colorscheme("tokyonight-night")
+        end,
     },
-    -- {
-    -- 	"nyoom-engineering/oxocarbon.nvim",
-    -- 	-- Add in any other configuration;
-    -- 	--   event = foo,
-    -- 	--   config = bar
-    --        priority = 1000,
-    -- 	--   end,
-    -- 	config = function()
-    --            vim.opt.background = "dark" -- set this to dark or light
-    -- 		vim.cmd("colorscheme oxocarbon")
-    -- 	end,
-    -- },
 }

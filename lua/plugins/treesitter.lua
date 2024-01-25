@@ -1,4 +1,5 @@
 return {
+    {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	config = function()
@@ -11,7 +12,7 @@ return {
 		-- configure treesitter
 		treesitter.setup({
 			-- enable syntax highlighting
-			highlight = { enable = true },
+			highlight = { enable = true, additional_vim_regex_highlighting = false},
 			-- enable indentation
 			indent = { enable = true },
 			-- ensure these language parsers are installed
@@ -29,7 +30,11 @@ return {
 				"vimdoc",
 			},
 			-- auto install above language parsers
-			auto_install = true,
+			auto_install = false,
 		})
 	end,
+},
+    -- {
+    --     "juniorsundar/nvim-markdown"
+    -- }
 }
