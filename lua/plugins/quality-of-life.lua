@@ -76,4 +76,47 @@ return {
 			end,
 		},
 	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		opts = {
+			indent = {
+				char = "│",
+				tab_char = "│",
+			},
+			scope = { enabled = true },
+			exclude = {
+				filetypes = {
+					"help",
+					"alpha",
+					"dashboard",
+					"neo-tree",
+					"Trouble",
+					"trouble",
+					"lazy",
+					"mason",
+					"notify",
+					"toggleterm",
+					"lazyterm",
+				},
+			},
+		},
+		main = "ibl",
+		config = function()
+			require("ibl").setup()
+		end,
+	},
+	{
+		"chrisgrieser/nvim-recorder",
+		dependencies = "rcarriga/nvim-notify", -- optional
+		opts = {}, -- required even with default settings, since it calls `setup()`
+	},
+	{
+		"ggandor/leap.nvim",
+		dependencies = {
+			"tpope/vim-repeat",
+		},
+		config = function()
+			require("leap").create_default_mappings()
+		end,
+	},
 }

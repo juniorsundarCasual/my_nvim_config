@@ -50,7 +50,9 @@ return {
                 capabilities = capabilities,
             })
             lspconfig.gopls.setup({
-            lspconfig.marksman.setup({
+                capabilities = capabilities,
+            })
+             lspconfig.marksman.setup({
                 capabilities = capabilities,
             })
             -- Global mappings.
