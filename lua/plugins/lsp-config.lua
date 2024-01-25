@@ -10,6 +10,7 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = { "lua_ls", "pylsp", "clangd", "rust_analyzer", "gopls" },
+                ensure_installed = { "lua_ls", "pylsp", "clangd", "rust_analyzer" , "marksman"},
             })
         end,
     },
@@ -49,6 +50,7 @@ return {
                 capabilities = capabilities,
             })
             lspconfig.gopls.setup({
+            lspconfig.marksman.setup({
                 capabilities = capabilities,
             })
             -- Global mappings.
