@@ -9,7 +9,6 @@ return {
 				return
 			end
 
-			-- local mocha = require("catppuccin.palettes").get_palette("mocha")
 			bufferline.setup({
 				options = {
 					hover = {
@@ -19,33 +18,19 @@ return {
 					},
 					separator_style = "thick",
 				},
-				-- highlights = require("catppuccin.groups.integrations.bufferline").get({
-				-- 	styles = { "italic", "bold" },
-				-- 	custom = {
-				-- 		all = {
-				-- 			fill = { bg = "#000000" },
-				-- 		},
-				-- 		mocha = {
-				-- 			background = { fg = mocha.text },
-				-- 		},
-				-- 		latte = {
-				-- 			background = { fg = "#000000" },
-				-- 		},
-				-- 	},
-				-- }),
 			})
 		end,
 	},
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
-			local status, lualine = pcall(require, "lualine")
-			if not status then
+			local lualine_status, lualine = pcall(require, "lualine")
+			if not lualine_status then
 				return
 			end
 
-			local status, prose = pcall(require, "nvim-prose")
-			if not status then
+			local prose_status, prose = pcall(require, "nvim-prose")
+			if not prose_status then
 				return
 			end
 
@@ -53,8 +38,9 @@ return {
 			lualine.setup({
 				options = {
 					icons_enabled = true,
-					-- theme = "catppuccin",
-					theme = "tokyonight",
+                    theme = "auto",
+                    -- theme = "catppuccin",
+					-- theme = "kanagawa",
 					component_separators = { left = "|", right = "|" },
 					section_separators = { left = "", right = "" },
 					-- component_separators = { left = "", right = "" },
@@ -75,7 +61,8 @@ return {
 					lualine_a = { "mode" },
 					lualine_b = { "branch", "diff", "diagnostics" },
 					lualine_c = { { "filename", path = 2 } },
-					lualine_x = { "encoding", "fileformat", "filetype" },
+					-- lualine_x = { "encoding", "fileformat", "filetype" },
+					lualine_x = { "filetype" },
 					lualine_y = { "progress", "location" },
 					lualine_z = { "filesize" },
 				},
