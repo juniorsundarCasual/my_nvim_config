@@ -95,12 +95,44 @@ return {
             )
         end,
     },
+    -- {
+    -- 	"kdheepak/lazygit.nvim",
+    -- 	dependencies = { "nvim-lua/plenary.nvim" },
+    -- 	config = function()
+    -- 		vim.keymap.set("n", "gG", "<cmd>LazyGit<CR>", { noremap = true, silent = false, desc = "Lazygit" })
+    -- 		vim.keymap.set("v", "gG", "<cmd>LazyGit<CR>", { noremap = true, silent = false, desc = "Lazygit" })
+    -- 	end,
+    -- },
+    -- {
+    -- 	"tpope/vim-fugitive",
+    -- 	config = function()
+    -- 		vim.keymap.set("n", "gG", ":G ", { noremap = true, silent = false, desc = "Lazygit" })
+    -- 		vim.keymap.set("v", "gG", ":G ", { noremap = true, silent = false, desc = "Lazygit" })
+    -- 	end,
+    -- },
     {
-        "kdheepak/lazygit.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim", -- required
+            "sindrets/diffview.nvim", -- optional - Diff integration
+            "nvim-telescope/telescope.nvim", -- optional
+        },
         config = function()
-            vim.keymap.set("n", "G", "<cmd>LazyGit<CR>", { noremap = true, silent = false, desc = "Lazygit" })
-            vim.keymap.set("v", "G", "<cmd>LazyGit<CR>", { noremap = true, silent = false, desc = "Lazygit" })
+            local neogit = require("neogit")
+            neogit.setup({
+                signs = {
+                    hunk = { "", "" },
+                    item = { "", "" },
+                    section = { "", "" },
+                },
+                integrations = {
+                    telescope = true,
+                    diffview = true,
+                },
+            })
+
+            vim.keymap.set("n", "gG", "<cmd>Neogit<cr>", { noremap = true, silent = false, desc = "Neogit" })
+            vim.keymap.set("v", "gG", "<cmd>Neogit<cr>", { noremap = true, silent = false, desc = "Neogit" })
         end,
     },
 }
